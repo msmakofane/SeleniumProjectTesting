@@ -17,25 +17,29 @@ public class Listener implements ITestListener {
         extentTest = extent.createTest(result.getMethod().getMethodName());
 
     }
-
+    @Override
     public void onTestFailure(ITestResult result){
         extentTest.log(Status.FAIL, "Test Case" + result.getMethod().getMethodName() + "Has Failed");
 
     }
-
+    @Override
     public void onTestSuccess(ITestResult result){
+        extentTest.log(Status.PASS,"Test Case" + result.getMethod().getMethodName() + "Has passed");
 
     }
-
+    @Override
     public void onTestSkipped(ITestResult result){
+        extentTest.log(Status.SKIP, "Test Case" + result.getMethod().getMethodName() + "Has been skipped");
 
     }
-
+    @Override
     public void onFinish(ITestContext result){
+        extent.flush();
 
     }
-
+    @Override
     public void onStart(ITestContext result){
+        extent = ExtentReportManager.extentReports();
 
     }
 
