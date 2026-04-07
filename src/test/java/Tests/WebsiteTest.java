@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.LoginPage;
 import Utils.ReadFromFile;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -9,7 +10,6 @@ import static Utils.ReadFromFile.comments;
 
 @Test
 public class WebsiteTest extends Base {
-
 
     public void verifyHomePageIsDisplayed() {
         homePage.verifyHomePageIsDisplayed();
@@ -25,8 +25,8 @@ public class WebsiteTest extends Base {
     @Test(dependsOnMethods = "clickLoginButton")
     public void verifyLoginPageIsDisplayed() {
         loginPage.verifyLoginPageIsDisplayed();
+        takeScreenshoots.takeSnapShots(driver, "LoginPageScreenshoot");
     }
-
     @Test(dependsOnMethods = "clickLoginButton")
     public void userEnterEmail() {
         loginPage.enterEmail(ReadFromFile.email);
@@ -75,7 +75,7 @@ public class WebsiteTest extends Base {
     @Test(dependsOnMethods = "userEnterEmailAddress")
     public void populateAge() throws InterruptedException {
         dashboardPage.ageDetail(String.valueOf(age));
-//
+
     }
 
     @Test(dependsOnMethods = "populateAge")
@@ -131,7 +131,6 @@ public class WebsiteTest extends Base {
         dashboardPage.viewSubmissionForm();
 
     }
-
     @AfterTest
     public void closeBrowser() {
         driver.quit();
