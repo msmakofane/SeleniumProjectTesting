@@ -24,7 +24,7 @@ public class ExtentReportManager {
 
         extentSparkReporter.config().setDocumentTitle("Extent Report");
 
-        extentSparkReporter.config().setTheme(Theme.DARK);
+//        extentSparkReporter.config().setTheme(Theme.DARK);
 
         extentSparkReporter.config().setReportName("Ndosi Automation");
 
