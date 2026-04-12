@@ -31,4 +31,8 @@ jobs:
           # Install Java version 21
           java-version: '21'
 
+      # Step 3: Build the project and run the tests using Maven
+          -name: Build and Run Tests
+          run: mvn clean test -Dheadless=true
+
 
