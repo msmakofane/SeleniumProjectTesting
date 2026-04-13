@@ -131,11 +131,7 @@ public class WebsiteTest extends Base {
         dashboardPage.viewSubmissionForm();
 
     }
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
 
-    }
 
 }
 
